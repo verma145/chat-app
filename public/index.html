@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat Room</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 1rem;
+    }
+    #chat-section {
+      display: none;
+    }
+    #messages {
+      list-style: none;
+      padding: 0;
+    }
+    #messages li {
+      padding: 8px 12px;
+      margin: 8px;
+      border-radius: 10px;
+      max-width: 60%;
+      word-wrap: break-word;
+      clear: both;
+    }
+    .sent {
+      background-color: #dcf8c6;
+      text-align: right;
+      float: right;
+    }
+    .received {
+      background-color: #f1f0f0;
+      text-align: left;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div id="join-form">
+    <h2>Join Chat</h2>
+    <form>
+      <input type="text" id="username" placeholder="Enter your name" required />
+      <input type="text" id="room" placeholder="Enter room name" required />
+      <button type="submit">Join</button>
+    </form>
+  </div>
+
+  <div id="chat-section">
+    <h2>Chat Room</h2>
+    <p>Room: <span id="chat-room-name"></span></p>
+    <ul id="messages"></ul>
+    <form id="chat-form">
+      <input id="msg" autocomplete="off" placeholder="Type a message" required />
+      <button>Send</button>
+    </form>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
