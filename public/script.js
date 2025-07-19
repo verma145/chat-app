@@ -14,10 +14,11 @@ joinForm.addEventListener("submit", (e) => {
   e.preventDefault();
   username = document.getElementById("username").value.trim();
   room = document.getElementById("room").value.trim();
+const country = document.getElementById("country").value;
 
   if (!username || !room) return;
 
-  socket.emit("join-room", { username, room });
+  socket.emit("join-room", { username, room, country });
   roomDisplay.textContent = room;
 
   document.getElementById("join-form").style.display = "none";
