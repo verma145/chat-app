@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat Room</title>
+</head>
+<body>
+  <h2>Welcome to Chat Room</h2>
+  <div id="chat-box">
+    <ul id="messages"></ul>
+    <form id="chat-form">
+      <input id="msg" autocomplete="off" placeholder="Type your message..." />
+      <button>Send</button>
+    </form>
+  </div>
+
+  <script>
+    // Get query params
+    const urlParams = new URLSearchParams(window.location.search);
+    const username = urlParams.get('username');
+    const room = urlParams.get('room');
+    const country = urlParams.get('country');
+
+    document.body.insertAdjacentHTML("afterbegin",
+      `<h3>${username} joined ${room} from ${country}</h3>`
+    );
+  </script>
+</body>
+</html>
