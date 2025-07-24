@@ -2,28 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Chat Room</title>
+  <title>Chat Joined</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <h2>Welcome to Chat Room</h2>
-  <div id="chat-box">
-    <ul id="messages"></ul>
-    <form id="chat-form">
-      <input id="msg" autocomplete="off" placeholder="Type your message..." />
-      <button>Send</button>
-    </form>
-  </div>
-
   <script>
-    // Get query params
     const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('username');
     const room = urlParams.get('room');
     const country = urlParams.get('country');
 
-    document.body.insertAdjacentHTML("afterbegin",
-      `<h3>${username} joined ${room} from ${country}</h3>`
-    );
+    if (username && room && country) {
+      document.body.insertAdjacentHTML("afterbegin",
+        `<h3>${username} joined ${room} from ${country}</h3>`
+      );
+    } else {
+      document.body.insertAdjacentHTML("afterbegin",
+        `<h3>Missing details. Please join again from the home page.</h3>`
+      );
+    }
   </script>
 </body>
 </html>
